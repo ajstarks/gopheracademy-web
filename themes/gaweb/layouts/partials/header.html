@@ -1,0 +1,21 @@
+<header id="header">
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">GopherAcademy</a>
+        <ul class="nav">
+          <li><a href="https://www.gopheracademy.com" title="Home">Home</a></li>
+	  <li class="dropdown">
+	    <ul>
+          	<li><a href="https://www.gophercon.com" title="GopherCon 2017">GopherCon 2017</a></li>
+           </ul>
+	  </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {{ range .AlternativeOutputFormats -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
+</header>
+
